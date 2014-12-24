@@ -154,11 +154,12 @@ sub bsf_unstrand {
     my $Table = [];
     my @Print;
 
-    open(IN, $infile) or die "couldn't open input file $infile\n";
+    open(IN, "cat $infile | sort -k1,1 -k2,2n -k3,3 -k4,4 | ") or die "couldn't open input file $infile\n";
     while (my $line=<IN>) {
 	chomp $line;
 	my ($nm, $pos, $str, $cxt, $r, $d) = split(/\s+/, $line);;
 	my ($m, $u) = ($r * $d, (1.0-$r) * $d);
+	$cxt eq $context or next;
 	push(@$Table, [$nm, $pos, $str, $cxt, $m, $u]);
 	push(@Print, 1);
     }
