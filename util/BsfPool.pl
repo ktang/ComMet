@@ -26,18 +26,26 @@ while (my $line=<IN>) {
     if ($nm eq $cells[0] && $pos == $cells[1]) {
         $str eq $cells[2] or die "mC at the same position in different strands, $str, $line\n";
         if ($cxt eq $cells[3]) {
-            $r = ($r*$d + $cells[4]*$cells[5]) / ($d + $cells[5]);
-            $d = $d + $cells[5];
-            next;
+	    if ($d + $cells[5] == 0) {
+		$r = 0;
+		$d = 0;
+	    }
+	    else {
+		$r = ($r*$d + $cells[4]*$cells[5]) / ($d + $cells[5]);
+		$d = $d + $cells[5];
+	    }
+	    next;
         }
     }
     if ($init) {
         $init = 0;
     }
     else {
+	$d==0 and print STDERR "warning: mC with depth==0 at $nm, $pos, $str\n"; 
         print join("\t", ($nm, $pos, $str, $cxt, $r, $d)), "\n";
     }
 
     ($nm, $pos, $str, $cxt, $r, $d) = (@cells);
 }
+$d==0 and print STDERR "warning: mC with depth==0 at $nm, $pos, $str\n"; 
 print join("\t", ($nm, $pos, $str, $cxt, $r, $d)), "\n";
