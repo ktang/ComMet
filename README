@@ -173,9 +173,8 @@ Bisulfighter: accurate detection of methylated cytosines and differentially meth
 Nucleic Acids Research, 42(6):e45, 2014. 
 
 Yutaka Saito, and Toutai Mituyama, 
-Detection of differentially methylated regions from bisulfite sequencing data 
-improved by hidden Markov models with new emission probabilities. 
-submitted. 
+Detection of differentially methylated regions from bisulfite-seq data by hidden Markov models incorporating genome-wide methylation level distributions,
+BMC Genomics, accepted for publication.
 
 
 ==== Contact

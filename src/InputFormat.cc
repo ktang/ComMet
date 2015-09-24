@@ -13,7 +13,7 @@ split(vector<string>& vec, const string &csv)
   string s;
 
   vec.clear();
-  while(getline(ss, s, ',') != NULL) 
+  while (getline(ss, s, ',')) 
     vec.push_back(s);
 }
 
@@ -133,7 +133,7 @@ load_mb(string& name, vector<uint>& pos,
   }
 
   string s;
-  while (getline(ifs, s) != NULL) {
+  while (getline(ifs, s)) {
     stringstream ss;
     string m1_csv, u1_csv, m2_csv, u2_csv;
     ss << s;

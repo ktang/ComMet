@@ -8,7 +8,7 @@ LDLIBS    = -lm -lboost_program_options
 DEFINE    = 
 #DEFINE   += -DNDEBUG
 
-CPPFLAGS += $(INCLUDE) $(DEFINE) -Wall -Wno-sign-compare -O3
+CPPFLAGS += $(INCLUDE) $(DEFINE) -std=gnu++98 -Wall -Wno-sign-compare -O3
 #CPPFLAGS += -pthread
 #CPPFLAGS += -static
 #CPPFLAGS += -pg
